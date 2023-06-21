@@ -22,6 +22,7 @@ with app.app_context():
         zookeepers.append(zk)
 
     db.session.add_all(zookeepers)
+    
 
     enclosures = []
     environments = ['Desert', 'Pond', 'Ocean', 'Field', 'Trees', 'Cave', 'Cage']
@@ -31,6 +32,7 @@ with app.app_context():
         enclosures.append(e)
 
     db.session.add_all(enclosures)
+    
 
     animals = []
     species = ['Lion', 'Tiger', 'Bear', 'Hippo', 'Rhino', 'Elephant', 'Ostrich',
@@ -44,7 +46,7 @@ with app.app_context():
         a.zookeeper = rc(zookeepers)
         a.enclosure = rc(enclosures)
         animals.append(a)
+        
 
     db.session.add_all(animals)
     db.session.commit()
-
